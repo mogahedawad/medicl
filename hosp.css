@@ -1,0 +1,177 @@
+body {
+  font-family: 'Cairo', sans-serif;
+  background-color: #f0f4f8;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #1976d2;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.main-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  background-color: #eeeeee;
+}
+
+.main-nav li {
+  margin: 10px;
+}
+
+.main-nav a {
+  text-decoration: none;
+  background-color: #2196f3;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+main {
+  text-align: center;
+  padding: 40px;
+}
+.notification {
+  background-color: #ffeb3b;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background-color: #f4f6f9;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.clinic-dashboard {
+  padding: 30px;
+}
+
+.header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.card h3 {
+  margin-bottom: 15px;
+  color: #2980b9;
+}
+
+.card form input, .card form select {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+.card form button {
+  background-color: #27ae60;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+.table th, .table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  text-align: right;
+}
+
+.notifications {
+  background-color: #dff9fb;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+  color: #333;
+}
+h1, h2, h3 {
+  color: #2c3e50;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+.table th, .table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  text-align: right;
+}
+.table th {
+  background-color: #e3f2fd;
+  color: #0d47a1;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .card, .table {
+    padding: 15px;
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 20px;
+  }
+}
+
