@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>صيدلية د. وليد حسين الفكي</title>
+  <link rel="stylesheet" href="waleed.css/waleed.css">
+</head>
+<body>
+  <header>
+    <div class="waleed/">
+      <img src="" alt="شعار الصيدلية">
+      <span>صيدلية د. وليد حسين الفكي</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">الرئيسية</a></li>
+        <li><a href="#">الأدوية</a></li>
+        <li><a href="#">مستحضرات التجميل</a></li>
+        <li><a href="#صيدلية دكتور وليد حسين الفكي للادوية ومستحضرات التجميل ">من نحن</a></li>
+        <li><a href="#سنار المدينه 0912101145">اتصل بنا</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>نثق بصحتك... ونعتني بجمالك</h1>
+    <p>نوفر أفضل الأدوية والمستحضرات الأصلية بخدمة راقية</p>
+    <a href="#" class="btn">تصفح المنتجات</a>
+  </section>
+
+  <section class="products">
+    <h2>منتجات مختارة</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="waleed.html/شعار صيدليةدكتور ولي" alt="دواء">
+        <h3>باراسيتامول 500mg</h3>
+        <p>مسكن آمن للآلام والحمى</p>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x200" alt="كريم">
+        <h3>كريم ترطيب البشرة</h3>
+        <p>ترطيب عميق للبشرة الجافة</p>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x200" alt="مكياج">
+        <h3>أحمر شفاه طبيعي</h3>
+        <p>لون جذاب ومكونات آمنة</p>
+      </div>
+    </div>
+  </section>
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>طلب دواء - صيدلية د. وليد حسين الفكي</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section class="order-form">
+    <h2>نموذج طلب دواء</h2>
+    <form>
+      <label>اسم الدواء:</label>
+      <input type="text" placeholder="مثال: باراسيتامول 500mg" required>
+
+      <label>الكمية المطلوبة:</label>
+      <input type="number" min="1" max="100" required>
+
+      <label>اسم المريض:</label>
+      <input type="text" required>
+
+      <label>رقم الجوال:</label>
+      <input type="tel" placeholder="05XXXXXXXX" required>
+
+      <label>البريد الإلكتروني:</label>
+      <input type="email" required>
+
+      <label>ملاحظات إضافية:</label>
+      <textarea rows="4" placeholder="مثلاً: طريقة التوصيل، وقت الاستلام..."></textarea>
+
+      <button type="submit">إرسال الطلب</button>
+    </form>
+  </section>
+  <section class="medicine-order">
+  <h2>طلب دواء</h2>
+  <form action="https://api.whatsapp.com/send" method="GET" target="_blank" enctype="multipart/form-data" onsubmit="return prepareWhatsAppMessage()">
+    <label>اسم الدواء:</label>
+    <input type="text" id="medName" placeholder="مثال: أموكسيسيلين 500mg" required>
+
+    <label>الكمية المطلوبة:</label>
+    <input type="number" id="quantity" min="1" max="100" required>
+
+    <label>اسم المريض:</label>
+    <input type="text" id="patientName" required>
+
+    <label>رقم الجوال:</label>
+    <input type="tel" id="phone" placeholder="05XXXXXXXX" required>
+
+    <label>البريد الإلكتروني:</label>
+    <input type="email" id="email" required>
+
+    <label>رفع وصفة طبية (اختياري):</label>
+    <input type="file" accept=".jpg,.jpeg,.png,.pdf">
+
+    
+
+    <button type="submit">إرسال عبر WhatsApp</button>
+  </form>
+</section>
+
+<script>
+  function prepareWhatsAppMessage() {
+    const medName = document.getElementById('medName').value;
+    const quantity = document.getElementById('quantity').value;
+    const patientName = document.getElementById('patientName').value;
+    const phone = document.getElementById('phone').value;
+    const email = document.getElementById('email').value;
+    const notes = document.getElementById('notes').value;
+
+    const message = `طلب دواء من موقع الصيدلية:\n
+    الاسم: ${patientName}\n
+    رقم الجوال: ${phone}\n
+    البريد الإلكتروني: ${email}\n
+    اسم الدواء: ${medName}\n
+    الكمية: ${quantity}\n
+    ملاحظات: ${notes}`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappNumber = "9665XXXXXXXX"; // رقم الصيدلية بصيغة دولية
+    const url = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
+
+    window.open(url, '_blank');
+    return false; // منع الإرسال التقليدي
+  }
+</script>
+const message = `
+طلب دواء جديد:
+الاسم: ${patientName}
+الدواء: ${medName}
+الكمية: ${quantity}
+رابط الوصفة: ${prescriptionURL}
+`;
+
+const whatsappURL = `https://api.whatsapp.com/send?phone=${pharmacyNumber}&text=${encodeURIComponent(message)}`;
+
+<img src="https://api.qrserver.com/v1/create-qr-code/?data=https://yourpharmacy.com/order&size=150x150" alt="QR لطلب دواء">
+
+<table>
+  <tr>
+    <th>الدواء</th>
+    <th>التاريخ</th>
+    <th>الحالة</th>
+    <th>الوصفة</th>
+  </tr>
+  <tr>
+    <td>أموكسيسيلين</td>
+    <td>2025-09-08</td>
+    <td>تم التوصيل</td>
+    <td><a href="prescription.pdf" target="_blank">عرض</a></td>
+  </tr>
+</table>
+
+<section class="dashboard">
+  <h2>لوحة تحكم الصيدلي</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>اسم المريض</th>
+        <th>الدواء</th>
+        <th>الكمية</th>
+        <th>الوصفة</th>
+        <th>الحالة</th>
+        <th>إرسال تأكيد</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>أحمد علي</td>
+        <td>أموكسيسيلين</td>
+        <td>2</td>
+        <td><a href="prescription1.pdf" target="_blank">عرض</a></td>
+        <td>
+          <select>
+            <option>قيد المراجعة</option>
+            <option>جاهز</option>
+            <option>تم التوصيل</option>
+          </select>
+        </td>
+        <td><button onclick="sendWhatsApp('9665XXXXXXX')">إرسال</button></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+
+
+
+
+
+
+  <section class="delivery-form">
+    <h2>طلب خدمة توصيل</h2>
+    <form>
+      <label>اسم العميل:</label>
+      <input type="text" required>
+
+      <label>رقم الجوال:</label>
+      <input type="tel" placeholder="05XXXXXXXX" required>
+
+      <label>العنوان الكامل:</label>
+      <textarea rows="3" placeholder="الحي، الشارع، رقم المبنى..." required></textarea>
+
+      <label>اسم الدواء أو المنتج:</label>
+      <input type="text" required>
+
+      <label>الكمية المطلوبة:</label>
+      <input type="number" min="1" max="50" required>
+
+      <label>وقت التوصيل المفضل:</label>
+      <select>
+        <option>صباحًا (9 ص - 12 م)</option>
+        <option>عصرًا (1 م - 5 م)</option>
+        <option>مساءً (6 م - 10 م)</option>
+      </select>
+
+      <label>ملاحظات إضافية:</label>
+      <textarea rows="3" placeholder="مثلاً: الدفع عند الاستلام، وصف إضافي للعنوان..."></textarea>
+
+      <button type="submit">إرسال الطلب</button>
+    </form>
+  </section>
+</body>
+</html>
+
+
+
+<form action="submit_order.php" method="POST">
+  <!-- الحقول هنا -->
+</for
+
+<select name="status">
+  <option>قيد المراجعة</option>
+  <option>جاهز للتوصيل</option>
+  <option>تم التوصيل</option>
+</select>
+
+<label>رابط الموقع على الخريطة:</label>
+<input type="url" name="location_link" placeholder="https://maps.google.com/?q=..." required>
+
+<a href="<?php echo $location_link; ?>" target="_blank">عرض الموقع</a>
+
+<section class="inventory">
+  <h2>إدارة المخزون</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>اسم المنتج</th>
+        <th>الكمية المتوفرة</th>
+        <th>سعر البيع</th>
+        <th>سعر التكلفة</th>
+        <th>الحالة</th>
+        <th>إجراء</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>باراسيتامول 500mg</td>
+        <td>120</td>
+        <td>5 ريال</td>
+        <td>3 ريال</td>
+        <td>متوفر</td>
+        <td><button>تعديل</button> <button>حذف</button></td>
+      </tr>
+      <tr>
+        <td>كريم ترطيب البشرة</td>
+        <td>15</td>
+        <td>25 ريال</td>
+        <td>18 ريال</td>
+        <td style="color: red;">كمية منخفضة</td>
+        <td><button>تعديل</button> <button>حذف</button></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="accounts">
+  <h2>الحسابات والتقارير</h2>
+  <ul>
+    <li>إجمالي المبيعات اليوم: <strong>1,250 ريال</strong></li>
+    <li>إجمالي الأرباح: <strong>430 ريال</strong></li>
+    <li>المنتج الأكثر مبيعًا: <strong>باراسيتامول</strong></li>
+    <li>عدد الطلبات المنفذة: <strong>42</strong></li>
+  </ul>
+</section>
+CREATE TABLE users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(50),
+  password VARCHAR(255),
+  role ENUM('pharmacist', 'accountant', 'inventory_manager'),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+<form action="login.php" method="POST">
+  <label>اسم المستخدم:</label>
+  <input type="text" name="username" required>
+
+  <label>كلمة المرور:</label>
+  <input type="password" name="password" required>
+
+  <button type="submit">تسجيل الدخول</button>
+</form>
+
+CREATE TABLE sales (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  product_id INT,
+  quantity INT,
+  total_price DECIMAL(10,2),
+  sale_date DATE
+);
+
+SELECT SUM(total_price) AS daily_revenue
+FROM sales
+WHERE sale_date = CURDATE();
+
+SELECT SUM(total_price) AS monthly_revenue
+FROM sales
+WHERE MONTH(sale_date) = MONTH(CURDATE()) AND YEAR(sale_date) = YEAR(CURDATE());
+
+const wb = XLSX.utils.book_new();
+const ws = XLSX.utils.json_to_sheet(salesData);
+XLSX.utils.book_append_sheet(wb, ws, "المبيعات");
+XLSX.writeFile(wb, "تقرير_المبيعات.xlsx");
+
+CREATE TABLE products (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100),
+  cost_price DECIMAL(10,2),
+  sale_price DECIMAL(10,2),
+  category VARCHAR(50),
+  status VARCHAR(50),
+  quantity INT
+);
+
+<form action="add_product.php" method="POST">
+  <input type="text" name="name" placeholder="اسم المنتج" required>
+  <input type="number" name="cost_price" placeholder="سعر التكلفة" required>
+  <input type="number" name="sale_price" placeholder="سعر البيع" required>
+  <input type="number" name="quantity" placeholder="الكمية" required>
+  <select name="category">
+    <option>دواء</option>
+    <option>مستحضر تجميل</option>
+  </select>
+  <select name="status">
+    <option>متوفر</option>
+    <option>غير متوفر</option>
+  </select>
+  <button type="submit">إضافة المنتج</button>
+</form>
+
+SELECT * FROM products WHERE quantity < 10;
+
+if (product.quantity < 10) {
+  alert(`⚠️ الكمية منخفضة لمنتج: ${product.name}`);
+}
+
+<select id="categoryFilter">
+  <option value="">كل الفئات</option>
+  <option value="دواء">دواء</option>
+  <option value="مستحضر تجميل">مستحضر تجميل</option>
+</select>
+
+<select id="statusFilter">
+  <option value="">كل الحالات</option>
+  <option value="متوفر">متوفر</option>
+  <option value="غير متوفر">غير متوفر</option>
+</select>
+
+function filterProducts() {
+  const category = document.getElementById('categoryFilter').value;
+  const status = document.getElementById('statusFilter').value;
+  // فلترة المنتجات من قاعدة البيانات أو من مصفوفة محلية
+}
+
+<label><i class="fas fa-user"></i> اسم العميل:</label>
+<input type="text" placeholder="أدخل اسمك الكامل">
+
+<label><i class="fas fa-pills"></i> اسم الدواء:</label>
+<input type="text" placeholder="مثال: أموكسيسيلين">
+
+<label><i class="fas fa-map-marker-alt"></i> العنوان:</label>
+<textarea placeholder="الحي، الشارع، رقم المبنى..."></textarea>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<canvas id="revenueChart" width="400" height="200"></canvas>
+
+const ctx = document.getElementById('revenueChart').getContext('2d');
+const chart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['يناير', 'فبراير', 'مارس', 'أبريل'],
+    datasets: [{
+      label: 'الإيرادات (ريال)',
+      data: [1200, 1800, 1500, 2200],
+      backgroundColor: '#2e7d32'
+    }]
+  }
+});
+
+<button type="submit" id="submitBtn">إرسال الطلب</button>
+<div id="loading" style="display:none;">
+  <i class="fas fa-spinner fa-spin"></i> جاري الإرسال...
+</div>
+
+document.getElementById('submitBtn').addEventListener('click', () => {
+  document.getElementById('loading').style.display = 'block';
+});
+
+document.documentElement.classList.add(userRole); // مثال: pharmacist أو accountant
+
+<body class="accountant">
+  <section class="accountant-dashboard">
+    <h2>لوحة المحاسب</h2>
+
+    <div class="report-card">
+      <i class="fas fa-coins"></i>
+      <div>
+        <h3>إيرادات اليوم</h3>
+        <p>1,250 ريال</p>
+      </div>
+    </div>
+
+    <div class="report-card">
+      <i class="fas fa-calendar-alt"></i>
+      <div>
+        <h3>إيرادات الشهر</h3>
+        <p>32,400 ريال</p>
+      </div>
+    </div>
+
+    <div class="report-card">
+      <i class="fas fa-chart-line"></i>
+      <div>
+        <h3>المنتج الأكثر مبيعًا</h3>
+        <p>باراسيتامول 500mg</p>
+      </div>
+    </div>
+
+    <button class="export-btn"><i class="fas fa-file-export"></i> تصدير المبيعات إلى Excel</button>
+
+    <canvas id="revenueChart" width="400" height="200" style="margin-top: 40px;"></canvas>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx = document.getElementById('revenueChart').getContext('2d');
+    const chart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['يناير', 'فبراير', 'مارس', 'أبريل'],
+        datasets: [{
+          label: 'الإيرادات (ريال)',
+          data: [12000, 15000, 18000, 22000],
+          backgroundColor: '#1565c0'
+        }]
+      }
+    });
+  </script>
+</body>
+
+<body class="inventory_manager">
+  <section class="inventory-dashboard">
+    <h2>لوحة مدير المخزون</h2>
+
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th>اسم المنتج</th>
+          <th>الكمية</th>
+          <th>سعر البيع</th>
+          <th>سعر التكلفة</th>
+          <th>الفئة</th>
+          <th>الحالة</th>
+          <th>إجراء</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>باراسيتامول 500mg</td>
+          <td>120</td>
+          <td>5 ريال</td>
+          <td>3 ريال</td>
+          <td>دواء</td>
+          <td>متوفر</td>
+          <td>
+            <button class="action-btn">تعديل</button>
+            <button class="action-btn">حذف</button>
+          </td>
+        </tr>
+        <tr>
+          <td>كريم ترطيب البشرة</td>
+          <td><span class="low-stock">8</span></td>
+          <td>25 ريال</td>
+          <td>18 ريال</td>
+          <td>مستحضر تجميل</td>
+          <td>كمية منخفضة</td>
+          <td>
+            <button class="action-btn">تعديل</button>
+            <button class="action-btn">حذف</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</body>
+<body class="inventory_manager">
+  <section class="inventory-dashboard">
+    <h2>لوحة مدير المخزون</h2>
+
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th>اسم المنتج</th>
+          <th>الكمية</th>
+          <th>سعر البيع</th>
+          <th>سعر التكلفة</th>
+          <th>الفئة</th>
+          <th>الحالة</th>
+          <th>إجراء</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>باراسيتامول 500mg</td>
+          <td>120</td>
+          <td>5 ريال</td>
+          <td>3 ريال</td>
+          <td>دواء</td>
+          <td>متوفر</td>
+          <td>
+            <button class="action-btn">تعديل</button>
+            <button class="action-btn">حذف</button>
+          </td>
+        </tr>
+        <tr>
+          <td>كريم ترطيب البشرة</td>
+          <td><span class="low-stock">8</span></td>
+          <td>25 ريال</td>
+          <td>18 ريال</td>
+          <td>مستحضر تجميل</td>
+          <td>كمية منخفضة</td>
+          <td>
+            <button class="action-btn">تعديل</button>
+            <button class="action-btn">حذف</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</body>
+
+
+
+  <footer>
+    <p>© 2025 صيدلية د. وليد حسين الفكي. جميع الحقوق محفوظة.</p>
+  </footer>
+
+
+</body>
+</html>
+
+
+  <footer>
+    <p>© 2025 صيدلية د. وليد حسين الفكي. جميع الحقوق محفوظة.</p>
+  </footer>
+</body>
+</html>
+
